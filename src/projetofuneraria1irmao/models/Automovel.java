@@ -54,11 +54,5 @@ public class Automovel {
     public void setFabricacao(LocalDate fabricacao) {
         this.fabricacao = fabricacao;
     }
-    public void cadastrar(){
-        String sql = "INSERT INTO cliente (nome, cpf, telefone, email, endereco) VALUES ("
-                + " '" + this.getModelo()+ "',"
-                + " '" + this.getKm()+ "',"
-                + " '" + this.getFabricacao()+ "')";
-        Conexao.executar(sql);
-        }
+    
 }

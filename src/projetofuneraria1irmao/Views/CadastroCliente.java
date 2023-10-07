@@ -5,6 +5,8 @@
  */
 package projetofuneraria1irmao.Views;
 
+import projetofuneraria1irmao.models.Cliente;
+
 /**
  *
  * @author 182220008
@@ -195,6 +197,20 @@ public class CadastroCliente extends javax.swing.JFrame {
                 new CadastroCliente().setVisible(true);
             }
         });
+    }
+    public Cliente criaCliente(){
+        Cliente cli = new Cliente();
+        
+        cli.setNome(TfNome.getText());
+        cli.setCpf(TfCpf.getText());
+        cli.setTelefone(TfTelefone.getText());
+        cli.setEmail(TfEmail.getText());
+        cli.setEndereco(TfEndereco.getText());
+        cli.setCidade(TfCidade.getText());
+        
+        
+        return cli;
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

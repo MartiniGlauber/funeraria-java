@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package projetofuneraria1irmao.models;
-import java.util.ArrayList;
 
 /**
  *
@@ -17,13 +16,28 @@ public class Servico {
     private Automovel automovel;
     private FornecedorFlores fornecedorFlores;
     private CemiterioCapela cemiterioCapela;
+    private UrnaFuneraria urnaFuneraria;
+
+    public Servico() {
+    }
     
-    public Servico (String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela){
+    
+    
+    public Servico (String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria){
         this.tipoServico = tipoServico;
         this.valor = valor;
         this.automovel = automovel;
         this.fornecedorFlores = fornecedorFlores;
         this.cemiterioCapela = cemiterioCapela;
+        this.urnaFuneraria = urnaFuneraria;
+    }
+
+    public UrnaFuneraria getUrnaFuneraria() {
+        return urnaFuneraria;
+    }
+
+    public void setUrnaFuneraria(UrnaFuneraria urnaFuneraria) {
+        this.urnaFuneraria = urnaFuneraria;
     }
 
     public int getId() {
@@ -73,6 +87,15 @@ public class Servico {
     public void setCemiterioCapela(CemiterioCapela cemiterioCapela) {
         this.cemiterioCapela = cemiterioCapela;
     }
-    
+    public void cadastrar(){
+        String sql = "INSERT INTO servico (tipoServico, valor, automovel, fornecedorFlores, cemiterioCapela, urna_funeraria) VALUES ("
+                + " '" + this.getTipoServico()+ "',"
+                + " '" + this.getValor()+ "'," 
+                + " '" + this.getAutomovel()+ "',"
+                + " '" + this.getFornecedorFlores()+ "',"
+                + " '" + this.getCemiterioCapela()+ "',"
+                + " '" + this.getUrnaFuneraria()+ "')";
+        Conexao.executar(sql);
+        }
     
 }

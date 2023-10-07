@@ -63,12 +63,4 @@ public class FornecedorFlores {
         this.endereco = endereco;
     }
     
-    public void cadastrar(){
-        String sql = "INSERT INTO fornecedor_flores (nome, email, telefone, endereco) VALUES ("
-                + " '" + this.getNome() + "',"
-                + " '" + this.getEmail()+ "'," 
-                + " '" + this.getTelefone()+ "',"
-                + " '" + this.getEndereco()+ "')";
-        Conexao.executar(sql);
-        }
 }

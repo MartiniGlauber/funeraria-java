@@ -18,7 +18,7 @@ public class Defunto {
     private String genero;
     private LocalDate dataNascimento;
     private LocalDate dataObito;
-    ArrayList<UrnaFuneraria> urnaFuneraria;
+    
        
     public Defunto(String nome, String genero, String urnaFuneraria, LocalDate dataNascimento, LocalDate dataObito){
         this.nome = nome;
@@ -66,5 +66,13 @@ public class Defunto {
     public void setDataObito(LocalDate dataObito) {
         this.dataObito = dataObito;
     }
+    public void cadastrar(){
+        String sql = "INSERT INTO registro_defunto (nome, genero, data_nascimento, data_obito) VALUES ("
+                + " '" + this.getNome() + "',"
+                + " '" + this.getGenero()+ "'," 
+                + " '" + this.getDataNascimento()+ "',"
+                + " '" + this.getDataObito()+ "')";
+        Conexao.executar(sql);
+        }
         
 }

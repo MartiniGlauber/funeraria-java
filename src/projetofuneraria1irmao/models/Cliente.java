@@ -16,9 +16,10 @@ public class Cliente {
     private String telefone;
     private String email;
     private String endereco;
+    private String cidade;
     
 
-public Cliente (String nome, String cpf, String telefone, String email, String endereco) {
+public Cliente (String nome, String cpf, String telefone, String email, String endereco, String cidade) {
     this.nome = nome;
     this.cpf = cpf;
     this.telefone = telefone;
@@ -71,14 +72,24 @@ public void setId(int id){
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+    
     public void cadastrar(){
         String sql = "INSERT INTO cliente (nome, cpf, telefone, email, endereco) VALUES ("
-                + "'" + this.getNome() + "',"
-                + "'" + this.getCpf()+ "'," 
-                + "'" + this.getTelefone()+ "',"
-                + "'" + this.getEmail()+ "',"
-                + "'" + this.getEndereco()+ "')";
-        
-    }
+                + " '" + this.getNome() + "',"
+                + " '" + this.getCpf()+ "'," 
+                + " '" + this.getTelefone()+ "',"
+                + " '" + this.getEmail()+ "',"
+                + " '" + this.getEndereco()+ "',"
+                + " '" + this.getCidade()+ "')";
+        Conexao.executar(sql);
+        }
 
 }

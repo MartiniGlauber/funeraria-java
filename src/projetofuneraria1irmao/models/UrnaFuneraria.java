@@ -41,7 +41,5 @@ public class UrnaFuneraria {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }    
     }
-    
-    
-}

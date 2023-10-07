@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projetofuneraria1irmao.Views;
+import projetofuneraria1irmao.models.Defunto;
 
 /**
  *
@@ -32,7 +33,6 @@ public class CadastroDefunto extends javax.swing.JFrame {
         LbGenero = new javax.swing.JLabel();
         LbDataNascimento = new javax.swing.JLabel();
         LbDataObito = new javax.swing.JLabel();
-        CbTipoCaixao = new javax.swing.JComboBox<>();
         FtfDataNascimento = new javax.swing.JFormattedTextField();
         FtfDataObito = new javax.swing.JFormattedTextField();
         TfNome = new javax.swing.JTextField();
@@ -51,13 +51,6 @@ public class CadastroDefunto extends javax.swing.JFrame {
 
         LbDataObito.setText("Data óbito");
 
-        CbTipoCaixao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo caixão", "Standart", "Luxo" }));
-        CbTipoCaixao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CbTipoCaixaoActionPerformed(evt);
-            }
-        });
-
         FtfDataNascimento.setText("dd/mm/yyyy    ");
 
         FtfDataObito.setText("dd/mm/yyyy");
@@ -75,27 +68,28 @@ public class CadastroDefunto extends javax.swing.JFrame {
                         .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TfNome))
-                    .addComponent(CbTipoCaixao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LbDataNascimento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LbGenero)
-                            .addComponent(LbDataObito))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TfGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                            .addComponent(FtfDataObito)))
-                    .addComponent(BtCadastrar))
+                    .addComponent(LbGenero)
+                    .addComponent(LbDataObito))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TfGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                    .addComponent(FtfDataObito))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LbCadDefunto)
-                .addGap(128, 128, 128))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(LbCadDefunto)
+                        .addGap(128, 128, 128))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BtCadastrar)
+                        .addGap(145, 145, 145))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,19 +109,13 @@ public class CadastroDefunto extends javax.swing.JFrame {
                         .addComponent(LbDataNascimento)
                         .addComponent(FtfDataObito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CbTipoCaixao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtCadastrar))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(BtCadastrar)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void CbTipoCaixaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbTipoCaixaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CbTipoCaixaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,10 +151,19 @@ public class CadastroDefunto extends javax.swing.JFrame {
             }
         });
     }
+    public Defunto criaDefunto(){
+        Defunto def = new Defunto();
+        
+        def.setNome(TfNome.getText());
+        def.setGenero(TfGenero.getText());
+        def.setDataNascimento(FtfDataNascimento.getText());
+        def.setDataObito(FtfDataObito.getText());
+        
+       return def; 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCadastrar;
-    private javax.swing.JComboBox<String> CbTipoCaixao;
     private javax.swing.JFormattedTextField FtfDataNascimento;
     private javax.swing.JFormattedTextField FtfDataObito;
     private javax.swing.JLabel LbCadDefunto;

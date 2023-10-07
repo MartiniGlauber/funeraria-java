@@ -29,9 +29,9 @@
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="CbServico" min="-2" max="-2" attributes="0"/>
+                              <Component id="CbxServico" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="CbFornFlores" min="-2" max="-2" attributes="0"/>
+                              <Component id="CbxFornFlores" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="CbCliente" min="-2" max="-2" attributes="0"/>
@@ -39,12 +39,18 @@
                               <Component id="CbDefunto" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="CbCapela" min="-2" max="-2" attributes="0"/>
+                              <Component id="CbxCapela" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="68" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="CbAutomovel" max="32767" attributes="0"/>
-                                  <Component id="LbValor" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="CbxAutomovel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="CbxUrnaFuneraria" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="LbPreco" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LbCifrao" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LbValor" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
@@ -56,11 +62,6 @@
                           <Group type="102" attributes="0">
                               <Component id="LbServico" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="LbPreco" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="LbCifrao" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -82,23 +83,24 @@
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CbFornFlores" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CbServico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbxFornFlores" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbxServico" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CbCapela" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CbAutomovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbxCapela" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbxAutomovel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="LbValor" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LbPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LbCifrao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CbxUrnaFuneraria" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
               <Component id="BtCadServico" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
           </Group>
@@ -123,11 +125,13 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CbCapela">
+    <Component class="javax.swing.JComboBox" name="CbxCapela">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
+          <StringArray count="3">
             <StringItem index="0" value="Cemit&#xe9;rio/Capela"/>
+            <StringItem index="1" value="Cemit&#xe9;rio A"/>
+            <StringItem index="2" value="Cemit&#xe9;rio B"/>
           </StringArray>
         </Property>
       </Properties>
@@ -135,12 +139,13 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CbServico">
+    <Component class="javax.swing.JComboBox" name="CbxServico">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="3">
             <StringItem index="0" value="Servi&#xe7;o"/>
-            <StringItem index="1" value=" "/>
+            <StringItem index="1" value="Funeral"/>
+            <StringItem index="2" value="Crema&#xe7;&#xe3;o"/>
           </StringArray>
         </Property>
       </Properties>
@@ -160,23 +165,27 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CbFornFlores">
+    <Component class="javax.swing.JComboBox" name="CbxFornFlores">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
+          <StringArray count="3">
             <StringItem index="0" value="Fornecedor Flores"/>
+            <StringItem index="1" value="Floricultura A"/>
+            <StringItem index="2" value="Floricultura B"/>
           </StringArray>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;ForncedorFlores&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CbAutomovel">
+    <Component class="javax.swing.JComboBox" name="CbxAutomovel">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
+          <StringArray count="3">
             <StringItem index="0" value="Autom&#xf3;vel"/>
+            <StringItem index="1" value="Carro A"/>
+            <StringItem index="2" value="Carro B"/>
           </StringArray>
         </Property>
       </Properties>
@@ -203,6 +212,20 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LbValor">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="CbxUrnaFuneraria">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Urna Funeraria"/>
+            <StringItem index="1" value="Standart"/>
+            <StringItem index="2" value="Luxo"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
