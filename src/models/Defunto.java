@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class Defunto {
     private LocalDate dataObito;
     
        
-    public Defunto(String nome, String genero, String urnaFuneraria, LocalDate dataNascimento, LocalDate dataObito){
+    public Defunto(String nome, String genero, LocalDate dataNascimento, LocalDate dataObito){
         this.nome = nome;
         this.genero = genero;
         this.dataNascimento = dataNascimento;
@@ -69,13 +69,11 @@ public class Defunto {
     public void setDataObito(LocalDate dataObito) {
         this.dataObito = dataObito;
     }
-    public void cadastrar(){
-        String sql = "INSERT INTO registro_defunto (nome, genero, data_nascimento, data_obito) VALUES ("
-                + " '" + this.getNome() + "',"
-                + " '" + this.getGenero()+ "'," 
-                + " '" + this.getDataNascimento()+ "',"
-                + " '" + this.getDataObito()+ "')";
-        Conexao.executar(sql);
-        }
-        
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
+       
 }

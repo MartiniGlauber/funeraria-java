@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 /**
  *
@@ -13,15 +13,22 @@ public class UrnaFuneraria {
     private int id;
     private String tamanho;
     private String categoria;
+    private float valor;
     
-    public UrnaFuneraria(String tamanho, String categoria){
+    public UrnaFuneraria(String tamanho, String categoria, float valor){
         this.tamanho = tamanho;
-        this.categoria = categoria;        
+        this.categoria = categoria;   
+        this.valor = valor;
     }
 
     public int getId() {
         return id;
     }
+
+    public float getValor() {
+        return valor;
+    }
+    
 
     public void setId(int id) {
         this.id = id;
@@ -42,4 +49,10 @@ public class UrnaFuneraria {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }    
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s", tamanho, categoria);
+    }
+    
     }

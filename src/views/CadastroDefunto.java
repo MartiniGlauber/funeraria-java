@@ -3,25 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.Views;
-import java.time.Instant;
+package views;
+import dao.DefuntoDAO;
+import java.text.Format;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-import projetofuneraria1irmao.models.Defunto;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import models.Defunto;
+
 
 /**
  *
  * @author 182220008
  */
 public class CadastroDefunto extends javax.swing.JFrame {
+    private final DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private final Format formatoData = formatadorData.toFormat();
 
     /**
      * Creates new form CadastroDefunto
      */
     public CadastroDefunto() {
         initComponents();
+        
     }
 
     /**
@@ -38,8 +43,8 @@ public class CadastroDefunto extends javax.swing.JFrame {
         LbGenero = new javax.swing.JLabel();
         LbDataNascimento = new javax.swing.JLabel();
         LbDataObito = new javax.swing.JLabel();
-        FtfDataNascimento = new javax.swing.JFormattedTextField();
-        FtfDataObito = new javax.swing.JFormattedTextField();
+        FtfDataNascimento = new JFormattedTextField(formatoData);
+        FtfDataObito = new JFormattedTextField(formatoData);
         TfNome = new javax.swing.JTextField();
         TfGenero = new javax.swing.JTextField();
         BtCadastrar = new javax.swing.JButton();
@@ -55,10 +60,6 @@ public class CadastroDefunto extends javax.swing.JFrame {
         LbDataNascimento.setText("Data nascimento");
 
         LbDataObito.setText("Data óbito");
-
-        FtfDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
-        FtfDataObito.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         BtCadastrar.setText("Cadastrar");
         BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +129,16 @@ public class CadastroDefunto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
-      
+      try{
+          Defunto def = criaDefunto();
+          DefuntoDAO.cadastra(def);
+          JOptionPane.showMessageDialog(this, "Defunto cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+          new VendaServico().setVisible(true);
+        dispose();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar defunto:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
+        
+      }
       
       
     }//GEN-LAST:event_BtCadastrarActionPerformed
@@ -138,17 +148,13 @@ public class CadastroDefunto extends javax.swing.JFrame {
     public Defunto criaDefunto(){
         Defunto def = new Defunto();
         
-        
-        Date dataInseridaNasc = (Date) FtfDataNascimento.getValue();
-        LocalDate dataConvertidaNasc = LocalDateTime.ofInstant(dataInseridaNasc.toInstant(), ZoneId.systemDefault()).toLocalDate();
-        Date dataInseridaObt = (Date) FtfDataObito.getValue();
-        LocalDate dataConvertidaObt = LocalDateTime.ofInstant(dataInseridaObt.toInstant(), ZoneId.systemDefault()).toLocalDate();
-              
+        LocalDate dataNasc = LocalDate.parse(FtfDataNascimento.getText(), formatadorData);
+        LocalDate dataObt = LocalDate.parse(FtfDataObito.getText(), formatadorData);
         
         def.setNome(TfNome.getText());
         def.setGenero(TfGenero.getText());
-        def.setDataNascimento(dataConvertidaNasc);
-        def.setDataObito(dataConvertidaObt);
+        def.setDataNascimento(dataNasc);
+        def.setDataObito(dataObt);
         
        return def; 
     }

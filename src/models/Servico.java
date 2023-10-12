@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 /**
  *
@@ -17,19 +17,42 @@ public class Servico {
     private FornecedorFlores fornecedorFlores;
     private CemiterioCapela cemiterioCapela;
     private UrnaFuneraria urnaFuneraria;
+    private Cliente cli;
+    private Defunto def;
 
     public Servico() {
     }
-       
-    
-    public Servico (String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria){
+
+    public Servico(String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria, Cliente cli, Defunto def) {
+        
         this.tipoServico = tipoServico;
         this.valor = valor;
         this.automovel = automovel;
         this.fornecedorFlores = fornecedorFlores;
         this.cemiterioCapela = cemiterioCapela;
         this.urnaFuneraria = urnaFuneraria;
+        this.cli = cli;
+        this.def = def;
     }
+
+    public Cliente getCli() {
+        return cli;
+    }
+
+    public void setCli(Cliente cli) {
+        this.cli = cli;
+    }
+
+    public Defunto getDef() {
+        return def;
+    }
+
+    public void setDef(Defunto def) {
+        this.def = def;
+    }
+       
+    
+    
 
     public UrnaFuneraria getUrnaFuneraria() {
         return urnaFuneraria;
@@ -86,15 +109,5 @@ public class Servico {
     public void setCemiterioCapela(CemiterioCapela cemiterioCapela) {
         this.cemiterioCapela = cemiterioCapela;
     }
-    public void cadastrar(){
-        String sql = "INSERT INTO servico (tipo_servico, valor, automovel, fornecedor_flores, cemiterio_capela, urna_funeraria) VALUES ("
-                + " '" + this.getTipoServico()+ "',"
-                + " '" + this.getValor()+ "'," 
-                + " '" + this.getAutomovel()+ "',"
-                + " '" + this.getFornecedorFlores()+ "',"
-                + " '" + this.getCemiterioCapela()+ "',"
-                + " '" + this.getUrnaFuneraria()+ "')";
-        Conexao.executar(sql);
-        }
     
 }

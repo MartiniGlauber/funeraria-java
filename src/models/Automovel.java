@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 import java.time.LocalDate;
 
@@ -15,9 +15,9 @@ public class Automovel {
     private int id;
     private String modelo;
     private String km;
-    private LocalDate fabricacao;
+    private String fabricacao;
     
-    public Automovel(String modelo, String km, LocalDate fabricacao){
+    public Automovel(String modelo, String km, String fabricacao){
         this.modelo = modelo;
         this.km = km;
         this.fabricacao = fabricacao;        
@@ -47,12 +47,17 @@ public class Automovel {
         this.km = km;
     }
 
-    public LocalDate getFabricacao() {
+    public String getFabricacao() {
         return fabricacao;
     }
 
-    public void setFabricacao(LocalDate fabricacao) {
+    public void setFabricacao(String fabricacao) {
         this.fabricacao = fabricacao;
     }
-    
+
+    @Override
+    public String toString() {
+        return modelo;
+    }
+ 
 }

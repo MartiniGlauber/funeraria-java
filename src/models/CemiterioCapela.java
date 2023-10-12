@@ -3,28 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 /**
  *
  * @author 182220008
  */
-public class FornecedorFlores {
+public class CemiterioCapela {
     private int id;
     private String nome;
     private String email;
     private String telefone;
-    private String endereco;
+    private String endereco;   
     
-    public FornecedorFlores(String nome, String email, String telefone, String endereco){
+    public CemiterioCapela(String nome, String email, String telefone, String endereco){
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.endereco = endereco;        
+        this.endereco = endereco;            
     }
-    public FornecedorFlores(){
-        
-    }
+
     public int getId() {
         return id;
     }
@@ -64,5 +62,10 @@ public class FornecedorFlores {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+ 
 }

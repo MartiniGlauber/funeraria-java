@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofuneraria1irmao.models;
+package models;
 
 /**
  *
@@ -82,16 +82,12 @@ public void setId(int id){
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     
-    public void cadastrar(){
-        String sql = "INSERT INTO cliente (nome, cpf, telefone, email, endereco) VALUES ("
-                + " '" + this.getNome() + "',"
-                + " '" + this.getCpf()+ "'," 
-                + " '" + this.getTelefone()+ "',"
-                + " '" + this.getEmail()+ "',"
-                + " '" + this.getEndereco()+ "',"
-                + " '" + this.getCidade()+ "')";
-        Conexao.executar(sql);
-        }
+    
 
 }
