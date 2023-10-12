@@ -26,6 +26,9 @@ public class Defunto {
         this.dataNascimento = dataNascimento;
         this.dataObito = dataObito;
     }
+    public Defunto(){
+        
+    }
 
     public int getId() {
         return id;

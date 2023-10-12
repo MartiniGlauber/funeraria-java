@@ -22,7 +22,9 @@ public class FornecedorFlores {
         this.telefone = telefone;
         this.endereco = endereco;        
     }
-
+    public FornecedorFlores(){
+        
+    }
     public int getId() {
         return id;
     }

@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author 182220008
  */
 public class Conexao {
-   private static final String URL = "jdbc:mysql://localhost:3306/Exercicio_Faculdade?";
+   private static final String URL = "jdbc:mysql://localhost:3306/funeraria_um_irmao?";
    private static final String USER = "root";
    
    private static final String DRIVER = "com.mysql.jdbc.Driver";

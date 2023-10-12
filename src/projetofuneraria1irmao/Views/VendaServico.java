@@ -201,7 +201,7 @@ public class VendaServico extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CbDefunto;
     private javax.swing.JComboBox<String> CbxAutomovel;
     private javax.swing.JComboBox<String> CbxCapela;
-    private javax.swing.JComboBox<ForncedorFlores> CbxFornFlores;
+    private javax.swing.JComboBox<FornecedorFlores> CbxFornFlores;
     private javax.swing.JComboBox<String> CbxServico;
     private javax.swing.JComboBox<String> CbxUrnaFuneraria;
     private javax.swing.JLabel LbCifrao;

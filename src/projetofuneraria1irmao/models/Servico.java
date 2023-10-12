@@ -20,8 +20,7 @@ public class Servico {
 
     public Servico() {
     }
-    
-    
+       
     
     public Servico (String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria){
         this.tipoServico = tipoServico;
@@ -88,7 +87,7 @@ public class Servico {
         this.cemiterioCapela = cemiterioCapela;
     }
     public void cadastrar(){
-        String sql = "INSERT INTO servico (tipoServico, valor, automovel, fornecedorFlores, cemiterioCapela, urna_funeraria) VALUES ("
+        String sql = "INSERT INTO servico (tipo_servico, valor, automovel, fornecedor_flores, cemiterio_capela, urna_funeraria) VALUES ("
                 + " '" + this.getTipoServico()+ "',"
                 + " '" + this.getValor()+ "'," 
                 + " '" + this.getAutomovel()+ "',"
