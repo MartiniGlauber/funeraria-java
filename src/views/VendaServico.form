@@ -9,7 +9,8 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Servi&#xe7;o"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -31,17 +32,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="BtCadServico" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="LbServico" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -54,70 +44,80 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="CbxUrnaFuneraria" max="32767" attributes="0"/>
-                              <Component id="CbCliente" alignment="1" max="32767" attributes="0"/>
-                              <Component id="CbxServico" alignment="1" max="32767" attributes="0"/>
-                              <Component id="CbxCapela" alignment="1" max="32767" attributes="0"/>
+                          <Component id="CbxCapela" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="CbCliente" alignment="0" pref="88" max="32767" attributes="0"/>
                               <Component id="lbCliente" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="lbServico1" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="CbxServico" alignment="0" max="32767" attributes="0"/>
+                              <Component id="CbxUrnaFuneraria" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lbServico1" min="-2" pref="51" max="-2" attributes="0"/>
+                          <Component id="btSubtotal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="LbPreco" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LbCifrao" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="LbValor" min="-2" pref="41" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="lbDefunto" min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CbxAutomovel" pref="106" max="32767" attributes="0"/>
-                                      <Component id="CbDefunto" max="32767" attributes="0"/>
-                                      <Component id="CbxFornFlores" max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="LbPreco" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lbSubtotal" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lbAutomovel" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="CbxFornFlores" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="BtCadServico" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbDefunto" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="lbFornecedorFlores" min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="lbAutomovel" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Component id="CbxAutomovel" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="lbFornecedorFlores" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="CbDefunto" min="-2" pref="127" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <EmptySpace min="66" max="32767" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+              <Component id="LbServico" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="LbServico" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Component id="lbCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="LbServico" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="lbDefunto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CbCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CbDefunto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbFornecedorFlores" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbServico1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbServico1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -134,20 +134,27 @@
                   <Component id="CbxCapela" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CbxAutomovel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="lbUrnaFuneraria" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="LbValor" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LbPreco" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LbCifrao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CbxUrnaFuneraria" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="lbUrnaFuneraria" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="CbxUrnaFuneraria" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbSubtotal" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="LbPreco" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="BtCadServico" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BtCadServico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btSubtotal" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -155,6 +162,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="LbServico">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Servi&#xe7;o/Venda"/>
       </Properties>
     </Component>
@@ -183,15 +193,13 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="CbxServico">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Funeral"/>
-            <StringItem index="1" value="Crema&#xe7;&#xe3;o"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="comboTsModel" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="TipoServico[] listaTs = TipoServicoDAO.buscaTodos().toArray(TipoServico[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;TipoServico&gt; comboTsModel = new DefaultComboBoxModel&lt;&gt;(listaTs);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoServico&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="CbDefunto">
@@ -229,23 +237,29 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LbPreco">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LbCifrao">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="R$"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Subtotal R$"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BtCadServico">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cadastro do servi&#xe7;o"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtCadServicoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="LbValor">
+    <Component class="javax.swing.JLabel" name="lbSubtotal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="CbxUrnaFuneraria">
       <Properties>
@@ -260,38 +274,70 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbCliente">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cliente"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbDefunto">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Defunto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbCemiterioCapela">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cemit&#xe9;rio/Capela"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbFornecedorFlores">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Fornecedor de flores"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbServico1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Servi&#xe7;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbAutomovel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Autom&#xf3;vel"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbUrnaFuneraria">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Urna Funer&#xe1;ria"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btSubtotal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Calcula Subtotal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSubtotalActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

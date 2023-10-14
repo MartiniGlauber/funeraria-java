@@ -6,6 +6,9 @@
 package views;
 
 import dao.ClienteDAO;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import models.Cliente;
 
@@ -20,6 +23,7 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     public CadastroCliente() {
         initComponents();
+        defineIcone();
     }
 
     /**
@@ -46,23 +50,43 @@ public class CadastroCliente extends javax.swing.JFrame {
         TfCidade = new javax.swing.JTextField();
         BtCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de cliente");
 
+        LbNome.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbNome.setText("Nome");
 
+        LbTelefone.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbTelefone.setText("Telefone");
 
+        LbCadCliente.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbCadCliente.setText("Cadastro de cliente");
 
+        LbEndereco.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbEndereco.setText("Endereco");
 
+        LbCpf.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbCpf.setText("CPF");
 
+        LbEmail.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbEmail.setText("E-mail");
 
+        LbCidade.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbCidade.setText("Cidade");
 
+        TfNome.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        TfTelefone.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        TfEndereco.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        TfCpf.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        TfEmail.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        TfCidade.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
+        BtCadastrar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         BtCadastrar.setText("Cadastrar");
         BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,48 +99,48 @@ public class CadastroCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(LbCadCliente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(LbEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(LbTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LbTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LbEndereco))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TfTelefone)
-                                    .addComponent(TfEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)))
+                                    .addComponent(TfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LbNome)
-                                .addGap(30, 30, 30)
-                                .addComponent(TfNome)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(LbCidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(LbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LbCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                    .addComponent(TfCpf)
-                    .addComponent(TfCidade))
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtCadastrar)
-                .addGap(145, 145, 145))
+                            .addComponent(LbCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(TfCpf)
+                            .addComponent(TfCidade)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(LbCadCliente))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(BtCadastrar)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addComponent(LbCadCliente)
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbNome)
                     .addComponent(LbCpf)
@@ -134,9 +158,9 @@ public class CadastroCliente extends javax.swing.JFrame {
                     .addComponent(LbCidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(BtCadastrar)
-                .addGap(35, 35, 35))
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -147,14 +171,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         Cliente cli = criaCliente();
         ClienteDAO.cadastra(cli);
         JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        new CadastroDefunto().setVisible(true);
+        
         dispose();
         }catch (Exception e){
             JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar cliente:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtCadastrarActionPerformed
 
-    
+    private void defineIcone(){
+        Image icone16= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16,icone32, icone64, icone128));
+    }
    
     public Cliente criaCliente(){
         Cliente cli = new Cliente();

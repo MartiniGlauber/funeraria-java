@@ -10,49 +10,47 @@ package models;
  * @author 182220008
  */
 public class Servico {
+
     private int id;
-    private String tipoServico;
+    private TipoServico tipoServico;
     private float valor;
     private Automovel automovel;
     private FornecedorFlores fornecedorFlores;
     private CemiterioCapela cemiterioCapela;
     private UrnaFuneraria urnaFuneraria;
-    private Cliente cli;
-    private Defunto def;
+    private Cliente cliente;
+    private Defunto defunto;
 
     public Servico() {
     }
 
-    public Servico(String tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria, Cliente cli, Defunto def) {
-        
+    public Servico(TipoServico tipoServico, float valor, Automovel automovel, FornecedorFlores fornecedorFlores, CemiterioCapela cemiterioCapela, UrnaFuneraria urnaFuneraria, Cliente cliente, Defunto defunto) {
+
         this.tipoServico = tipoServico;
         this.valor = valor;
         this.automovel = automovel;
         this.fornecedorFlores = fornecedorFlores;
         this.cemiterioCapela = cemiterioCapela;
         this.urnaFuneraria = urnaFuneraria;
-        this.cli = cli;
-        this.def = def;
+        this.cliente = cliente;
+        this.defunto = defunto;
     }
 
     public Cliente getCli() {
-        return cli;
+        return cliente;
     }
 
     public void setCli(Cliente cli) {
-        this.cli = cli;
+        this.cliente = cli;
     }
 
     public Defunto getDef() {
-        return def;
+        return defunto;
     }
 
     public void setDef(Defunto def) {
-        this.def = def;
+        this.defunto = def;
     }
-       
-    
-    
 
     public UrnaFuneraria getUrnaFuneraria() {
         return urnaFuneraria;
@@ -70,11 +68,11 @@ public class Servico {
         this.id = id;
     }
 
-    public String getTipoServico() {
+    public TipoServico getTipoServico() {
         return tipoServico;
     }
 
-    public void setTipoServico(String tipoServico) {
+    public void setTipoServico(TipoServico tipoServico) {
         this.tipoServico = tipoServico;
     }
 
@@ -109,5 +107,5 @@ public class Servico {
     public void setCemiterioCapela(CemiterioCapela cemiterioCapela) {
         this.cemiterioCapela = cemiterioCapela;
     }
-    
+
 }
