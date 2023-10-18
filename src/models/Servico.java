@@ -108,4 +108,10 @@ public class Servico {
         this.cemiterioCapela = cemiterioCapela;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Serviço %s\nCliente %s\ndefunto %s\nValor R$ %.2f", tipoServico.getNome(), cliente.getNome(), defunto.getNome(), valor);
+    }
+    
+
 }

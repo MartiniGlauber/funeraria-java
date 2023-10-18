@@ -23,7 +23,7 @@ import models.UrnaFuneraria;
 public class ServicoDAO {
 
     public static void cadastra(Servico serv) {
-        String sql = "INSERT INTO servico (idCliente, idDefunto, tipo_servico, valor, idAutomovel, idFornecedor_flores, idCemiterio_capela, idUrna_funeraria) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO servico (idCliente, idDefunto, idTipo_servico, valor, idAutomovel, idFornecedor_flores, idCemiterio_capela, idUrna_funeraria) VALUES (?,?,?,?,?,?,?,?)";
 
         try ( Connection con = ConnectionFactory.getConnection();  
                 PreparedStatement statement = con.prepareStatement(sql);) {

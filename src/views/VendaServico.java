@@ -61,9 +61,8 @@ public class VendaServico extends javax.swing.JFrame {
         Automovel[] listaAut = AutomovelDAO.buscaTodos().toArray(Automovel[]::new);
         DefaultComboBoxModel<Automovel> comboAutModel = new DefaultComboBoxModel<>(listaAut);
         CbxAutomovel = new javax.swing.JComboBox<>();
-        LbPreco = new javax.swing.JLabel();
-        BtCadServico = new javax.swing.JButton();
         lbSubtotal = new javax.swing.JLabel();
+        BtCadServico = new javax.swing.JButton();
         UrnaFuneraria[] listaUf = UrnaFunerariaDAO.buscaTodos().toArray(UrnaFuneraria[]::new);
         DefaultComboBoxModel<UrnaFuneraria> comboUfModel = new DefaultComboBoxModel<>(listaUf);
         CbxUrnaFuneraria = new javax.swing.JComboBox<>();
@@ -82,25 +81,33 @@ public class VendaServico extends javax.swing.JFrame {
         setTitle("Serviço");
 
         LbServico.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        LbServico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbServico.setText("Serviço/Venda");
 
         Cliente[] listaClientes = ClienteDAO.buscaTodos().toArray(Cliente[]::new);
         DefaultComboBoxModel<Cliente> comboClienteModel = new DefaultComboBoxModel<>(listaClientes);
         CbCliente.setMaximumRowCount(10);
         CbCliente.setModel(comboClienteModel);
+        CbCliente.setPreferredSize(new java.awt.Dimension(270, 30));
 
         CbxCapela.setModel(comboCcModel);
+        CbxCapela.setPreferredSize(new java.awt.Dimension(270, 30));
 
         CbxServico.setModel(comboTsModel);
+        CbxServico.setPreferredSize(new java.awt.Dimension(270, 30));
 
         CbDefunto.setModel(comboDefuntoModel);
+        CbDefunto.setPreferredSize(new java.awt.Dimension(270, 30));
 
         CbxFornFlores.setModel(comboFfModel);
+        CbxFornFlores.setPreferredSize(new java.awt.Dimension(270, 30));
 
         CbxAutomovel.setModel(comboAutModel);
+        CbxAutomovel.setPreferredSize(new java.awt.Dimension(270, 30));
 
-        LbPreco.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        LbPreco.setText("Subtotal R$");
+        lbSubtotal.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lbSubtotal.setText("Subtotal R$");
+        lbSubtotal.setPreferredSize(new java.awt.Dimension(270, 30));
 
         BtCadServico.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         BtCadServico.setText("Cadastro do serviço");
@@ -110,30 +117,36 @@ public class VendaServico extends javax.swing.JFrame {
             }
         });
 
-        lbSubtotal.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-
         CbxUrnaFuneraria.setModel(comboUfModel);
+        CbxUrnaFuneraria.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbCliente.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbCliente.setText("Cliente");
+        lbCliente.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbDefunto.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbDefunto.setText("Defunto");
+        lbDefunto.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbCemiterioCapela.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbCemiterioCapela.setText("Cemitério/Capela");
+        lbCemiterioCapela.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbFornecedorFlores.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbFornecedorFlores.setText("Fornecedor de flores");
+        lbFornecedorFlores.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbServico1.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbServico1.setText("Serviço");
+        lbServico1.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbAutomovel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbAutomovel.setText("Automóvel");
+        lbAutomovel.setPreferredSize(new java.awt.Dimension(270, 30));
 
         lbUrnaFuneraria.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         lbUrnaFuneraria.setText("Urna Funerária");
+        lbUrnaFuneraria.setPreferredSize(new java.awt.Dimension(270, 30));
 
         btSubtotal.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btSubtotal.setText("Calcula Subtotal");
@@ -151,77 +164,67 @@ public class VendaServico extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbUrnaFuneraria, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LbServico, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbUrnaFuneraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbCemiterioCapela, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CbxCapela, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(CbCliente, javax.swing.GroupLayout.Alignment.LEADING, 0, 88, Short.MAX_VALUE)
-                                .addComponent(lbCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbServico1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CbxServico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CbxUrnaFuneraria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btSubtotal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(LbPreco)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6))
-                                    .addComponent(CbxFornFlores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(BtCadServico)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(3, 3, 3)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbDefunto, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbFornecedorFlores, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(CbxAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CbDefunto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(LbServico, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbServico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CbxServico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CbCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CbxCapela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CbxUrnaFuneraria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 36, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CbDefunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(CbxFornFlores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(CbxAutomovel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbFornecedorFlores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbDefunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(BtCadServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbCemiterioCapela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(38, 38, 38)
+                .addComponent(LbServico)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(lbCliente)
-                        .addGap(11, 11, 11))
+                        .addGap(7, 7, 7)
+                        .addComponent(lbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(LbServico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbDefunto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbDefunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CbDefunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbFornecedorFlores)
-                    .addComponent(lbServico1))
+                    .addComponent(lbServico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbFornecedorFlores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbxFornFlores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CbxServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCemiterioCapela)
-                    .addComponent(lbAutomovel))
+                    .addComponent(lbCemiterioCapela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbxCapela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,19 +232,17 @@ public class VendaServico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(lbUrnaFuneraria)
+                        .addComponent(lbUrnaFuneraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CbxUrnaFuneraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LbPreco))))
+                        .addGap(27, 27, 27)
+                        .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtCadServico)
                     .addComponent(btSubtotal))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,11 +252,11 @@ public class VendaServico extends javax.swing.JFrame {
 try{
         Servico serv = criaServico();
         ServicoDAO.cadastra(serv);
-        JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
         
         dispose();
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar cliente:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar Serviço:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtCadServicoActionPerformed
     private void defineIcone(){
@@ -268,7 +269,7 @@ try{
     private void btSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubtotalActionPerformed
         Servico serv = criaServico();
         float valor = serv.getValor();
-        lbSubtotal.setText(String.format("%.2f", valor));
+        lbSubtotal.setText(String.format("Subtotal R$ %.2f", valor));
         
     }//GEN-LAST:event_btSubtotalActionPerformed
 
@@ -300,7 +301,6 @@ try{
     private javax.swing.JComboBox<FornecedorFlores> CbxFornFlores;
     private javax.swing.JComboBox<TipoServico> CbxServico;
     private javax.swing.JComboBox<UrnaFuneraria> CbxUrnaFuneraria;
-    private javax.swing.JLabel LbPreco;
     private javax.swing.JLabel LbServico;
     private javax.swing.JButton btSubtotal;
     private javax.swing.JLabel lbAutomovel;
