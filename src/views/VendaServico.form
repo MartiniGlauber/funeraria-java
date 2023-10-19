@@ -107,9 +107,9 @@
                   <Component id="lbFornecedorFlores" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="CbxFornFlores" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="CbxServico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbxServico" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -164,7 +164,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Cliente[] listaClientes = ClienteDAO.buscaTodos().toArray(Cliente[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;Cliente&gt; comboClienteModel = new DefaultComboBoxModel&lt;&gt;(listaClientes);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Cliente[] listaClientes = ClienteDAO.buscaTodos().toArray(new Cliente[0]);&#xd;&#xa;DefaultComboBoxModel&lt;Cliente&gt; comboClienteModel = new DefaultComboBoxModel&lt;&gt;(listaClientes);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Cliente&gt;"/>
       </AuxValues>
     </Component>
@@ -178,7 +178,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="CemiterioCapela[] listaCc = CemiterioCapelaDAO.buscaTodos().toArray(CemiterioCapela[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;CemiterioCapela&gt; comboCcModel = new DefaultComboBoxModel&lt;&gt;(listaCc);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="CemiterioCapela[] listaCc = CemiterioCapelaDAO.buscaTodos().toArray(new CemiterioCapela[0]);&#xd;&#xa;DefaultComboBoxModel&lt;CemiterioCapela&gt; comboCcModel = new DefaultComboBoxModel&lt;&gt;(listaCc);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;CemiterioCapela&gt;"/>
       </AuxValues>
     </Component>
@@ -192,7 +192,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="TipoServico[] listaTs = TipoServicoDAO.buscaTodos().toArray(TipoServico[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;TipoServico&gt; comboTsModel = new DefaultComboBoxModel&lt;&gt;(listaTs);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="TipoServico[] listaTs = TipoServicoDAO.buscaTodos().toArray(new TipoServico[0]);&#xd;&#xa;DefaultComboBoxModel&lt;TipoServico&gt; comboTsModel = new DefaultComboBoxModel&lt;&gt;(listaTs);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoServico&gt;"/>
       </AuxValues>
     </Component>
@@ -206,7 +206,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Defunto[] listaDefuntos = DefuntoDAO.buscaTodos().toArray(Defunto[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;Defunto&gt; comboDefuntoModel = new DefaultComboBoxModel&lt;&gt;(listaDefuntos);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Defunto[] listaDefuntos = DefuntoDAO.buscaTodos().toArray(new Defunto[0]);&#xd;&#xa;DefaultComboBoxModel&lt;Defunto&gt; comboDefuntoModel = new DefaultComboBoxModel&lt;&gt;(listaDefuntos);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Defunto&gt;"/>
       </AuxValues>
     </Component>
@@ -220,7 +220,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="FornecedorFlores[] listaFf = FornecedorFloresDAO.buscaTodos().toArray(FornecedorFlores[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;FornecedorFlores&gt; comboFfModel = new DefaultComboBoxModel&lt;&gt;(listaFf);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="FornecedorFlores[] listaFf = FornecedorFloresDAO.buscaTodos().toArray(new FornecedorFlores[0]);&#xd;&#xa;DefaultComboBoxModel&lt;FornecedorFlores&gt; comboFfModel = new DefaultComboBoxModel&lt;&gt;(listaFf);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;FornecedorFlores&gt;"/>
       </AuxValues>
     </Component>
@@ -234,7 +234,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Automovel[] listaAut = AutomovelDAO.buscaTodos().toArray(Automovel[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;Automovel&gt; comboAutModel = new DefaultComboBoxModel&lt;&gt;(listaAut);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Automovel[] listaAut = AutomovelDAO.buscaTodos().toArray(new Automovel[0]);&#xd;&#xa;DefaultComboBoxModel&lt;Automovel&gt; comboAutModel = new DefaultComboBoxModel&lt;&gt;(listaAut);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Automovel&gt;"/>
       </AuxValues>
     </Component>
@@ -270,7 +270,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="UrnaFuneraria[] listaUf = UrnaFunerariaDAO.buscaTodos().toArray(UrnaFuneraria[]::new);&#xd;&#xa;DefaultComboBoxModel&lt;UrnaFuneraria&gt; comboUfModel = new DefaultComboBoxModel&lt;&gt;(listaUf);&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="UrnaFuneraria[] listaUf = UrnaFunerariaDAO.buscaTodos().toArray(new UrnaFuneraria[0]);&#xd;&#xa;DefaultComboBoxModel&lt;UrnaFuneraria&gt; comboUfModel = new DefaultComboBoxModel&lt;&gt;(listaUf);&#xd;&#xa;"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;UrnaFuneraria&gt;"/>
       </AuxValues>
     </Component>

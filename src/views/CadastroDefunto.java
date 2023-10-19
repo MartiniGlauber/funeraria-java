@@ -4,23 +4,25 @@
  * and open the template in the editor.
  */
 package views;
+
 import dao.DefuntoDAO;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.Format;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import models.Defunto;
-
 
 /**
  *
  * @author 182220008
  */
 public class CadastroDefunto extends javax.swing.JFrame {
+
     private final DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private final Format formatoData = formatadorData.toFormat();
 
@@ -30,10 +32,9 @@ public class CadastroDefunto extends javax.swing.JFrame {
     public CadastroDefunto() {
         initComponents();
         defineIcone();
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -143,40 +144,40 @@ public class CadastroDefunto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
-      try{
-          Defunto def = criaDefunto();
-          DefuntoDAO.cadastra(def);
-          JOptionPane.showMessageDialog(this, "Defunto cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
-          
-        dispose();
-        }catch (Exception e){
+        try {
+            Defunto def = criaDefunto();
+            DefuntoDAO.cadastra(def);
+            JOptionPane.showMessageDialog(this, "Defunto cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+
+            dispose();
+        } catch(DateTimeParseException ex){
+            JOptionPane.showMessageDialog(this, "Datas preenchidas incorretamente!", getTitle(), JOptionPane.ERROR_MESSAGE);
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar defunto:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
-        
-      }
-      
-      
+            
+        }
+
+
     }//GEN-LAST:event_BtCadastrarActionPerformed
 
-    private void defineIcone(){
-        Image icone16= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
-        Image icone32= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
-        Image icone64= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
-        Image icone128= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
-        setIconImages(Arrays.asList(icone16,icone32, icone64, icone128));
+    private void defineIcone() {
+        Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16, icone32, icone64, icone128));
     }
-    
-    public Defunto criaDefunto(){
-        Defunto def = new Defunto();
-        
+
+    public Defunto criaDefunto() {
+
         LocalDate dataNasc = LocalDate.parse(FtfDataNascimento.getText(), formatadorData);
         LocalDate dataObt = LocalDate.parse(FtfDataObito.getText(), formatadorData);
-        
-        def.setNome(TfNome.getText());
-        def.setGenero(TfGenero.getText());
-        def.setDataNascimento(dataNasc);
-        def.setDataObito(dataObt);
-        
-       return def; 
+
+        String nome = (TfNome.getText());
+        String genero = (TfGenero.getText());
+
+        return new Defunto(nome, genero, dataNasc, dataObt);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

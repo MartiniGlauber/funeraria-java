@@ -5,8 +5,10 @@
  */
 package models;
 
+import errors.ValidationException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import static utils.Validator.compareDate;
+import static utils.Validator.isValidString;
 
 /**
  *
@@ -21,10 +23,12 @@ public class Defunto {
     
        
     public Defunto(String nome, String genero, LocalDate dataNascimento, LocalDate dataObito){
-        this.nome = nome;
-        this.genero = genero;
-        this.dataNascimento = dataNascimento;
-        this.dataObito = dataObito;
+        if (!compareDate(dataNascimento, dataObito)) throw new ValidationException("Data de óbito não pode ser inferior a data de nascimento");
+        setNome(nome);
+        setGenero(genero);
+        setDataNascimento(dataNascimento);
+        setDataObito(dataObito);
+       
     }
     public Defunto(){
         
@@ -42,7 +46,10 @@ public class Defunto {
         return nome;
     }
 
-    public void setNome(String nome) {
+    private void setNome(String nome) {
+        if (! isValidString(nome)){
+            throw new ValidationException("Input para o nome é inválido");
+        }
         this.nome = nome;
     }
 
@@ -50,7 +57,10 @@ public class Defunto {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    private void setGenero(String genero) {
+        if (! isValidString(genero)){
+            throw new ValidationException("Input para o gênero é inválido");
+        }
         this.genero = genero;
     }
 
@@ -58,7 +68,7 @@ public class Defunto {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    private void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -66,7 +76,7 @@ public class Defunto {
         return dataObito;
     }
 
-    public void setDataObito(LocalDate dataObito) {
+    private void setDataObito(LocalDate dataObito) {
         this.dataObito = dataObito;
     }
 

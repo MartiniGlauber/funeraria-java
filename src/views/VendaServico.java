@@ -11,6 +11,9 @@ import dao.TipoServicoDAO;
 import dao.UrnaFunerariaDAO;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -46,24 +49,24 @@ public class VendaServico extends javax.swing.JFrame {
         lbCliente1 = new javax.swing.JLabel();
         LbServico = new javax.swing.JLabel();
         CbCliente = new javax.swing.JComboBox<>();
-        CemiterioCapela[] listaCc = CemiterioCapelaDAO.buscaTodos().toArray(CemiterioCapela[]::new);
+        CemiterioCapela[] listaCc = CemiterioCapelaDAO.buscaTodos().toArray(new CemiterioCapela[0]);
         DefaultComboBoxModel<CemiterioCapela> comboCcModel = new DefaultComboBoxModel<>(listaCc);
         CbxCapela = new javax.swing.JComboBox<>();
-        TipoServico[] listaTs = TipoServicoDAO.buscaTodos().toArray(TipoServico[]::new);
+        TipoServico[] listaTs = TipoServicoDAO.buscaTodos().toArray(new TipoServico[0]);
         DefaultComboBoxModel<TipoServico> comboTsModel = new DefaultComboBoxModel<>(listaTs);
         CbxServico = new javax.swing.JComboBox<>();
-        Defunto[] listaDefuntos = DefuntoDAO.buscaTodos().toArray(Defunto[]::new);
+        Defunto[] listaDefuntos = DefuntoDAO.buscaTodos().toArray(new Defunto[0]);
         DefaultComboBoxModel<Defunto> comboDefuntoModel = new DefaultComboBoxModel<>(listaDefuntos);
         CbDefunto = new javax.swing.JComboBox<>();
-        FornecedorFlores[] listaFf = FornecedorFloresDAO.buscaTodos().toArray(FornecedorFlores[]::new);
+        FornecedorFlores[] listaFf = FornecedorFloresDAO.buscaTodos().toArray(new FornecedorFlores[0]);
         DefaultComboBoxModel<FornecedorFlores> comboFfModel = new DefaultComboBoxModel<>(listaFf);
         CbxFornFlores = new javax.swing.JComboBox<>();
-        Automovel[] listaAut = AutomovelDAO.buscaTodos().toArray(Automovel[]::new);
+        Automovel[] listaAut = AutomovelDAO.buscaTodos().toArray(new Automovel[0]);
         DefaultComboBoxModel<Automovel> comboAutModel = new DefaultComboBoxModel<>(listaAut);
         CbxAutomovel = new javax.swing.JComboBox<>();
         lbSubtotal = new javax.swing.JLabel();
         BtCadServico = new javax.swing.JButton();
-        UrnaFuneraria[] listaUf = UrnaFunerariaDAO.buscaTodos().toArray(UrnaFuneraria[]::new);
+        UrnaFuneraria[] listaUf = UrnaFunerariaDAO.buscaTodos().toArray(new UrnaFuneraria[0]);
         DefaultComboBoxModel<UrnaFuneraria> comboUfModel = new DefaultComboBoxModel<>(listaUf);
         CbxUrnaFuneraria = new javax.swing.JComboBox<>();
         lbCliente = new javax.swing.JLabel();
@@ -84,7 +87,7 @@ public class VendaServico extends javax.swing.JFrame {
         LbServico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LbServico.setText("Serviço/Venda");
 
-        Cliente[] listaClientes = ClienteDAO.buscaTodos().toArray(Cliente[]::new);
+        Cliente[] listaClientes = ClienteDAO.buscaTodos().toArray(new Cliente[0]);
         DefaultComboBoxModel<Cliente> comboClienteModel = new DefaultComboBoxModel<>(listaClientes);
         CbCliente.setMaximumRowCount(10);
         CbCliente.setModel(comboClienteModel);
@@ -218,7 +221,7 @@ public class VendaServico extends javax.swing.JFrame {
                     .addComponent(lbServico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbFornecedorFlores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CbxFornFlores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CbxServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -253,7 +256,15 @@ try{
         Servico serv = criaServico();
         ServicoDAO.cadastra(serv);
         JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        
+        try(PrintStream ps = new PrintStream(new File("NF.txt"),StandardCharsets.UTF_8.name())){
+            ps.println("Funerária um irmão \n Antes eram dois.");
+            ps.println("Cliente: "+serv.getCli().getNome());
+            ps.println("Defunto: "+serv.getDef().getNome());
+            ps.println(serv.getTipoServico().getNome());
+            ps.println(String.format("Total R$ %.2f", serv.getValor()));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, String.format("Erro ao gerar nota fiscal:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
+        }
         dispose();
         }catch (Exception e){
             JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar Serviço:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);

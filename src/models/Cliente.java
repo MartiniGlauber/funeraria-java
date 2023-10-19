@@ -5,6 +5,11 @@
  */
 package models;
 
+import static utils.Validator.isValidString;
+import static utils.Validator.isValidCpf;
+import errors.ValidationException;
+
+
 /**
  *
  * @author 182220008
@@ -22,11 +27,12 @@ public Cliente(){
     
 }
 public Cliente (String nome, String cpf, String telefone, String email, String endereco, String cidade) {
-    this.nome = nome;
-    this.cpf = cpf;
-    this.telefone = telefone;
-    this.email = email;
-    this.endereco = endereco;
+    setNome(nome);
+    setCpf(cpf);
+    setTelefone(telefone);
+    setEmail(email);
+    setEndereco(endereco);
+    setCidade(cidade);
 }
 public int getId(){
     return id;
@@ -39,7 +45,10 @@ public void setId(int id){
         return nome;
     }
 
-    public void setNome(String nome) {
+    private void setNome(String nome) {
+        if (! isValidString(nome)){
+            throw new ValidationException("Input para o nome é inválido");
+        }
         this.nome = nome;
     }
 
@@ -47,7 +56,10 @@ public void setId(int id){
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    private void setCpf(String cpf) {
+        if (! isValidCpf(cpf)){
+            throw new ValidationException("Input para o CPF é inválido");
+        }
         this.cpf = cpf;
     }
 
@@ -55,7 +67,10 @@ public void setId(int id){
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    private void setTelefone(String telefone) {
+        if (! isValidString(telefone)){
+            throw new ValidationException("Input para o telefone é inválido");
+        }
         this.telefone = telefone;
     }
 
@@ -63,15 +78,22 @@ public void setId(int id){
         return email;
     }
 
-    public void setEmail(String email) {
+    private void setEmail(String email) {
+        if (! isValidString(email)){
+            throw new ValidationException("Input para o e-mail é inválido");
+        }
         this.email = email;
     }
 
     public String getEndereco() {
+        
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    private void setEndereco(String endereco) {
+        if (! isValidString(endereco)){
+            throw new ValidationException("Input para o endereço é inválido");
+        }
         this.endereco = endereco;
     }
 
@@ -79,7 +101,10 @@ public void setId(int id){
         return cidade;
     }
 
-    public void setCidade(String cidade) {
+    private void setCidade(String cidade) {
+        if (! isValidString(cidade)){
+            throw new ValidationException("Input para o cidade é inválido");
+        }
         this.cidade = cidade;
     }
 

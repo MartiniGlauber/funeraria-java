@@ -182,17 +182,17 @@ public class CadastroCliente extends javax.swing.JFrame {
     }
    
     public Cliente criaCliente(){
-        Cliente cli = new Cliente();
-        
-        cli.setNome(TfNome.getText());
-        cli.setCpf(TfCpf.getText());
-        cli.setTelefone(TfTelefone.getText());
-        cli.setEmail(TfEmail.getText());
-        cli.setEndereco(TfEndereco.getText());
-        cli.setCidade(TfCidade.getText());
         
         
-        return cli;
+        String nome =(TfNome.getText());
+        String cpf = (TfCpf.getText());
+        String telefone =(TfTelefone.getText());
+        String email = (TfEmail.getText());
+        String endereco = (TfEndereco.getText());
+        String cidade =(TfCidade.getText());
+        
+        
+        return new Cliente(nome, cpf, telefone, email, endereco, cidade);
         
     }
 
