@@ -3,7 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Cadastro defunto"/>
+    <Property name="title" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="defunto != null ? &quot;Edi&#xe7;&#xe3;o de defunto&quot; : &quot;Cadastro de defunto&quot;" type="code"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -24,20 +26,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="LbDataNascimento" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="FtfDataNascimento" min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace pref="46" max="32767" attributes="0"/>
+                              <Component id="FtfDataNascimento" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="LbNome" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="TfNome" max="32767" attributes="0"/>
+                              <Component id="TfNome" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -51,23 +53,19 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="FtfDataObito" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="TfGenero" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="LbCadDefunto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="TfGenero" pref="102" max="32767" attributes="0"/>
-                  <Component id="FtfDataObito" max="32767" attributes="0"/>
+                  <Component id="LbCadDefunto" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
-              <Component id="BtCadastrar" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="btSalvar" min="-2" pref="221" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,19 +78,19 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LbNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LbGenero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TfNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TfGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TfNome" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="TfGenero" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LbDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="FtfDataObito" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="FtfDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="FtfDataObito" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="FtfDataNascimento" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="LbDataObito" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
-              <Component id="BtCadastrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btSalvar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,7 +101,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastro de defunto"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="defunto != null ? &quot;Edi&#xe7;&#xe3;o de defunto&quot; : &quot;Cadastro de defunto&quot;" type="code"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LbNome">
@@ -139,11 +140,21 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="FtfDataNascimento">
+      <Properties>
+        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="defunto != null ? defunto.getDataNascimento() : null" type="code"/>
+        </Property>
+      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFormattedTextField(formatoData)"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="FtfDataObito">
+      <Properties>
+        <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="defunto != null ? defunto.getDataObito() : null" type="code"/>
+        </Property>
+      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFormattedTextField(formatoData)"/>
       </AuxValues>
@@ -153,6 +164,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="12" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="defunto != null ? defunto.getNome() : &quot;&quot;" type="code"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TfGenero">
@@ -160,17 +174,20 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="12" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="defunto != null ? defunto.getGenero() : &quot;&quot;" type="code"/>
+        </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="BtCadastrar">
+    <Component class="javax.swing.JButton" name="btSalvar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar"/>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtCadastrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

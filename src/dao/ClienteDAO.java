@@ -37,8 +37,7 @@ public class ClienteDAO {
     public static ArrayList<Cliente> buscaTodos() {
         String sql = "SELECT id, nome, cpf, telefone, email, endereco, cidade FROM cliente";
 
-        try ( Connection con = ConnectionFactory.getConnection();  
-                PreparedStatement statement = con.prepareStatement(sql);) {
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
             ArrayList<Cliente> lista = new ArrayList<>();
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -62,11 +61,11 @@ public class ClienteDAO {
         }
 
     }
+
     public static Cliente buscaPorId(int id) {
         String sql = "SELECT nome, cpf, telefone, email, endereco, cidade FROM cliente WHERE id = ?";
-        
-        try ( Connection con = ConnectionFactory.getConnection();
-                PreparedStatement statement = con.prepareStatement(sql);) {
+
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
 
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -82,11 +81,45 @@ public class ClienteDAO {
 
                 cli = new Cliente(nome, cpf, telefone, email, endereco, cidade);
                 cli.setId(id);
-                
+
             }
             rs.close();
-            if (cli != null) return cli;
-            throw new RuntimeException("Cliente não encontrado para o id "+id);
+            if (cli != null) {
+                return cli;
+            }
+            throw new RuntimeException("Cliente não encontrado para o id " + id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void editaCliente(Cliente cli) {
+        String sql = "UPDATE cliente SET nome =?, cpf =?, telefone =?, email =?, endereco =?, cidade =? WHERE id = ?";
+
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
+            statement.setString(1, cli.getNome());
+            statement.setString(2, cli.getCpf());
+            statement.setString(3, cli.getTelefone());
+            statement.setString(4, cli.getEmail());
+            statement.setString(5, cli.getEndereco());
+            statement.setString(6, cli.getCidade());
+            statement.setInt(7, cli.getId());
+
+            statement.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void excluiCliente(Cliente cli) {
+        String sql = "DELETE FROM cliente WHERE id = ?";
+
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
+            
+            statement.setInt(1, cli.getId());
+
+            statement.execute();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -16,12 +16,17 @@ import models.Cliente;
  *
  * @author 182220008
  */
-public class CadastroCliente extends javax.swing.JFrame {
+public class FormularioCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroCliente
-     */
-    public CadastroCliente() {
+    private Cliente cliente;
+
+    public FormularioCliente() {
+        initComponents();
+        defineIcone();
+    }
+
+    public FormularioCliente(Cliente cliente) {
+        this.cliente = cliente;
         initComponents();
         defineIcone();
     }
@@ -48,10 +53,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         TfCpf = new javax.swing.JTextField();
         TfEmail = new javax.swing.JTextField();
         TfCidade = new javax.swing.JTextField();
-        BtCadastrar = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de cliente");
+        setTitle(cliente != null ? "Edição de cliente" : "Cadastro de cliente");
 
         LbNome.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbNome.setText("Nome");
@@ -61,7 +66,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         LbCadCliente.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbCadCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LbCadCliente.setText("Cadastro de cliente");
+        LbCadCliente.setText(cliente != null ? "Edição de cliente" : "Cadastro de cliente");
 
         LbEndereco.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbEndereco.setText("Endereco");
@@ -76,22 +81,34 @@ public class CadastroCliente extends javax.swing.JFrame {
         LbCidade.setText("Cidade");
 
         TfNome.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfNome.setText(cliente != null ? cliente.getNome() : "");
+        TfNome.setPreferredSize(null);
 
         TfTelefone.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfTelefone.setText(cliente != null ? cliente.getTelefone(): "");
+        TfTelefone.setPreferredSize(null);
 
         TfEndereco.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfEndereco.setText(cliente != null ? cliente.getEndereco(): "");
+        TfEndereco.setPreferredSize(null);
 
         TfCpf.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfCpf.setText(cliente != null ? cliente.getCpf(): "");
+        TfCpf.setPreferredSize(null);
 
         TfEmail.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfEmail.setText(cliente != null ? cliente.getEmail(): "");
+        TfEmail.setPreferredSize(null);
 
         TfCidade.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfCidade.setText(cliente != null ? cliente.getCidade(): "");
+        TfCidade.setPreferredSize(null);
 
-        BtCadastrar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        BtCadastrar.setText("Cadastrar");
-        BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCadastrarActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
 
@@ -110,9 +127,9 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addComponent(LbNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(TfTelefone)
-                            .addComponent(TfEndereco))
+                            .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,14 +138,14 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addComponent(LbCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                            .addComponent(TfCpf)
-                            .addComponent(TfCidade))))
+                            .addComponent(TfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(BtCadastrar)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGap(279, 279, 279)
+                .addComponent(btSalvar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,65 +156,69 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbNome)
                     .addComponent(LbCpf)
-                    .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbTelefone)
                     .addComponent(LbEmail)
-                    .addComponent(TfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbEndereco)
                     .addComponent(LbCidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(BtCadastrar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(TfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(btSalvar)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
-        try{
-        Cliente cli = criaCliente();
-        ClienteDAO.cadastra(cli);
-        JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        
-        dispose();
-        }catch (Exception e){
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        try {
+            Cliente cli = criaCliente();
+            if (this.cliente != null) {
+                cli.setId(cliente.getId());
+                ClienteDAO.editaCliente(cli);
+                JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                ClienteDAO.cadastra(cli);
+                JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+
+            dispose();
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar cliente:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_BtCadastrarActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
 
-    private void defineIcone(){
-        Image icone16= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
-        Image icone32= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
-        Image icone64= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
-        Image icone128= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
-        setIconImages(Arrays.asList(icone16,icone32, icone64, icone128));
+    private void defineIcone() {
+        Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16, icone32, icone64, icone128));
     }
-   
-    public Cliente criaCliente(){
-        
-        
-        String nome =(TfNome.getText());
+
+    public Cliente criaCliente() {
+
+        String nome = (TfNome.getText());
         String cpf = (TfCpf.getText());
-        String telefone =(TfTelefone.getText());
+        String telefone = (TfTelefone.getText());
         String email = (TfEmail.getText());
         String endereco = (TfEndereco.getText());
-        String cidade =(TfCidade.getText());
-        
-        
+        String cidade = (TfCidade.getText());
+
         return new Cliente(nome, cpf, telefone, email, endereco, cidade);
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtCadastrar;
     private javax.swing.JLabel LbCadCliente;
     private javax.swing.JLabel LbCidade;
     private javax.swing.JLabel LbCpf;
@@ -211,5 +232,6 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField TfEndereco;
     private javax.swing.JTextField TfNome;
     private javax.swing.JTextField TfTelefone;
+    private javax.swing.JButton btSalvar;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,8 @@ import models.Defunto;
  *
  * @author 182220008
  */
-public class CadastroDefunto extends javax.swing.JFrame {
+public class FormularioDefunto extends javax.swing.JFrame {
+    private Defunto defunto;
 
     private final DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private final Format formatoData = formatadorData.toFormat();
@@ -29,7 +30,13 @@ public class CadastroDefunto extends javax.swing.JFrame {
     /**
      * Creates new form CadastroDefunto
      */
-    public CadastroDefunto() {
+    public FormularioDefunto() {
+        initComponents();
+        defineIcone();
+
+    }
+    public FormularioDefunto(Defunto def) {
+        this.defunto = def;
         initComponents();
         defineIcone();
 
@@ -48,13 +55,14 @@ public class CadastroDefunto extends javax.swing.JFrame {
         FtfDataObito = new JFormattedTextField(formatoData);
         TfNome = new javax.swing.JTextField();
         TfGenero = new javax.swing.JTextField();
-        BtCadastrar = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro defunto");
+        setTitle(defunto != null ? "Edição de defunto" : "Cadastro de defunto");
 
         LbCadDefunto.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        LbCadDefunto.setText("Cadastro de defunto");
+        LbCadDefunto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LbCadDefunto.setText(defunto != null ? "Edição de defunto" : "Cadastro de defunto");
 
         LbNome.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbNome.setText("Nome");
@@ -68,15 +76,21 @@ public class CadastroDefunto extends javax.swing.JFrame {
         LbDataObito.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         LbDataObito.setText("Data óbito");
 
+        FtfDataNascimento.setValue(defunto != null ? defunto.getDataNascimento() : null);
+
+        FtfDataObito.setValue(defunto != null ? defunto.getDataObito() : null);
+
         TfNome.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfNome.setText(defunto != null ? defunto.getNome() : "");
 
         TfGenero.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        TfGenero.setText(defunto != null ? defunto.getGenero() : "");
 
-        BtCadastrar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        BtCadastrar.setText("Cadastrar");
-        BtCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCadastrarActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
 
@@ -85,18 +99,18 @@ public class CadastroDefunto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LbDataNascimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TfNome)))
+                                .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -104,19 +118,16 @@ public class CadastroDefunto extends javax.swing.JFrame {
                                 .addGap(23, 23, 23))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(LbDataObito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LbCadDefunto)
-                        .addGap(41, 41, 41)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TfGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                    .addComponent(FtfDataObito))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(FtfDataObito, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(LbCadDefunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(BtCadastrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(209, 209, 209))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,23 +138,23 @@ public class CadastroDefunto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbNome)
                     .addComponent(LbGenero)
-                    .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbDataNascimento)
-                    .addComponent(FtfDataObito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FtfDataObito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LbDataObito))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(BtCadastrar)
-                .addGap(39, 39, 39))
+                .addGap(35, 35, 35)
+                .addComponent(btSalvar)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadastrarActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         try {
             Defunto def = criaDefunto();
             DefuntoDAO.cadastra(def);
@@ -159,7 +170,7 @@ public class CadastroDefunto extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_BtCadastrarActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
 
     private void defineIcone() {
         Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
@@ -181,7 +192,6 @@ public class CadastroDefunto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtCadastrar;
     private javax.swing.JFormattedTextField FtfDataNascimento;
     private javax.swing.JFormattedTextField FtfDataObito;
     private javax.swing.JLabel LbCadDefunto;
@@ -191,5 +201,6 @@ public class CadastroDefunto extends javax.swing.JFrame {
     private javax.swing.JLabel LbNome;
     private javax.swing.JTextField TfGenero;
     private javax.swing.JTextField TfNome;
+    private javax.swing.JButton btSalvar;
     // End of variables declaration//GEN-END:variables
 }

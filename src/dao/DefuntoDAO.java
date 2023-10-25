@@ -11,10 +11,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import models.Cliente;
 import models.Defunto;
+import errors.ErroSql;
 
 public class DefuntoDAO {
 
@@ -85,6 +86,38 @@ public class DefuntoDAO {
             if (def != null) return def;
             throw new RuntimeException("Defunto não encontrado para o id "+id);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void editaDefunto(Defunto def) {
+        String sql = "UPDATE defunto SET nome =?, genero =?, data_nascimento=?, data_obito=? WHERE id = ?";
+
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
+            statement.setString(1, def.getNome());
+            statement.setString(2, def.getGenero());
+            statement.setDate(3, Date.valueOf(def.getDataNascimento()));
+            statement.setDate(4, Date.valueOf(def.getDataObito()));
+            statement.setInt(5, def.getId());
+
+            statement.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void excluiDefunto(Defunto def) {
+        String sql = "DELETE FROM defunto WHERE id = ?";
+
+        try ( Connection con = ConnectionFactory.getConnection();  PreparedStatement statement = con.prepareStatement(sql);) {
+            
+            statement.setInt(1, def.getId());
+
+            statement.execute();
+
+        } catch (SQLIntegrityConstraintViolationException erroSql){
+            throw new ErroSql("Não foi possível excluir defunto pois possui serviço atrelado.");
+        } 
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
