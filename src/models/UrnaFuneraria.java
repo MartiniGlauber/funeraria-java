@@ -52,7 +52,7 @@ public class UrnaFuneraria {
 
     @Override
     public String toString() {
-        return String.format("%s - %s", tamanho, categoria);
+        return String.format("%s - %s - R$ %.2f", tamanho, categoria, valor);
     }
     
     }

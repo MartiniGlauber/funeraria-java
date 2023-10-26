@@ -5,11 +5,13 @@
  */
 package dao;
 
+import errors.ErroSql;
 import factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import models.Cliente;
 
@@ -120,7 +122,9 @@ public class ClienteDAO {
 
             statement.execute();
 
-        } catch (SQLException e) {
+        }catch (SQLIntegrityConstraintViolationException erroSql){
+            throw new ErroSql("Não foi possível excluir cliente pois o mesmo possui serviço atrelado.");
+        }catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

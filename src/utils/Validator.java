@@ -8,14 +8,11 @@ package utils;
 import errors.ValidationException;
 import java.time.LocalDate;
 
-/**
- *
- * @author Glauber
- */
+
 public class Validator {
     public static boolean isValidString(String s){
         if (s==null) return false;
-        return !(s.isEmpty());        
+        return !(s.trim().isEmpty());        
     }
     public static boolean isValidCpf(String cpf){
         if (!isValidString(cpf)) return false;

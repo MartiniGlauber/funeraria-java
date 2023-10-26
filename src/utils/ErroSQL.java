@@ -9,8 +9,8 @@ package utils;
  *
  * @author Glauber
  */
-public class ErroSql extends RuntimeException{
-        public ErroSql(String message){            
+public class ErroSQL extends RuntimeException{
+        public ErroSQL(String message){            
         super (message);
     }
     

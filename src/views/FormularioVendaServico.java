@@ -46,6 +46,26 @@ public class FormularioVendaServico extends javax.swing.JFrame {
         initComponents();
         defineIcone();
     }
+    private void editaServico(Servico serv){
+        serv.setId(servico.getId());
+                ServicoDAO.editaServico(serv);
+                JOptionPane.showMessageDialog(this, "Serviço atualizado com sucesso\n", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+    }
+    private void cadastraServico (Servico serv){
+        ServicoDAO.cadastra(serv);
+                JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
+                try (PrintStream ps = new PrintStream(new File("NF.txt"), StandardCharsets.UTF_8.name())) {
+                    ps.println("Funerária um irmão \n Antes eram dois.");
+                    ps.println("Cliente: " + serv.getCli().getNome());
+                    ps.println("Defunto: " + serv.getDef().getNome());
+                    ps.println(serv.getTipoServico().getNome());
+                    ps.println(String.format("Total R$ %.2f", serv.getValor()));
+                    dispose();
+                } 
+                catch (Exception e) {
+                    throw new RuntimeException(String.format("Erro ao tentar imprimir serviço:\n%s", e.getMessage()));
+                }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -260,24 +280,12 @@ public class FormularioVendaServico extends javax.swing.JFrame {
         try {
             Servico serv = criaServico();
             if (this.servico != null) {
-                serv.setId(servico.getId());
-                ServicoDAO.editaServico(serv);
-                JOptionPane.showMessageDialog(this, "Serviço atualizado com sucesso\n", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+                editaServico(serv);
             } else {
-                ServicoDAO.cadastra(serv);
-                JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
-                try (PrintStream ps = new PrintStream(new File("NF.txt"), StandardCharsets.UTF_8.name())) {
-                    ps.println("Funerária um irmão \n Antes eram dois.");
-                    ps.println("Cliente: " + serv.getCli().getNome());
-                    ps.println("Defunto: " + serv.getDef().getNome());
-                    ps.println(serv.getTipoServico().getNome());
-                    ps.println(String.format("Total R$ %.2f", serv.getValor()));
-
-                    dispose();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar Serviço:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
-                }
+                cadastraServico(serv);
             }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,String.format("Erro ao tentar salvar:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtCadServicoActionPerformed
     private void defineIcone() {

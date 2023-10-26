@@ -56,7 +56,7 @@ public class ServicoDAO {
                 int id = rs.getInt("id");
                 int idCliente = rs.getInt("idCliente");
                 int idDefunto = rs.getInt("idDefunto");
-                int idTipo_servico = rs.getInt("tipo_servico");
+                int idTipo_servico = rs.getInt("idTipo_servico");
                 float valor = rs.getFloat("valor");
                 int idAutomovel = rs.getInt("idAutomovel");
                 int idFornecedorFlores = rs.getInt("idFornecedor_flores");
@@ -86,7 +86,7 @@ public class ServicoDAO {
 
     public static Servico buscaPorId(int id) {
         String sql
-                = "SELECT idCliente, idDefunto, idTipo_servico, valor, idAutomovel, idFornecedor_flores, idCemiterio_capela, idUrna_funeraria FROM servico";
+                = "SELECT idCliente, idDefunto, idTipo_servico, valor, idAutomovel, idFornecedor_flores, idCemiterio_capela, idUrna_funeraria FROM servico WHERE id =?";
 
         try (Connection con = ConnectionFactory.getConnection();
                 PreparedStatement statement = con.prepareStatement(sql);) {
@@ -96,7 +96,7 @@ public class ServicoDAO {
             if (rs.next()) {
                 int idCliente = rs.getInt("idCliente");
                 int idDefunto = rs.getInt("idDefunto");
-                int idTipo_servico = rs.getInt("tipo_servico");
+                int idTipo_servico = rs.getInt("idTipo_servico");
                 float valor = rs.getFloat("valor");
                 int idAutomovel = rs.getInt("idAutomovel");
                 int idFornecedorFlores = rs.getInt("idFornecedor_flores");

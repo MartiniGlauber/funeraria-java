@@ -5,12 +5,9 @@
  */
 package views;
 
-import dao.ClienteDAO;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Arrays;
-import javax.swing.JOptionPane;
-import models.Cliente;
 
 /**
  *
@@ -103,6 +100,11 @@ public class Menu extends javax.swing.JFrame {
 
         btListServicos.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         btListServicos.setText("Listar Serviços");
+        btListServicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btListServicosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,6 +204,10 @@ public class Menu extends javax.swing.JFrame {
     private void btListDefuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListDefuntosActionPerformed
         new ListaDefuntos().setVisible(true);
     }//GEN-LAST:event_btListDefuntosActionPerformed
+
+    private void btListServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListServicosActionPerformed
+        new ListaServico().setVisible(true);
+    }//GEN-LAST:event_btListServicosActionPerformed
 
     /**
      * @param args the command line arguments

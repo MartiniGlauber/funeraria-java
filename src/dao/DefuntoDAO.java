@@ -115,7 +115,7 @@ public class DefuntoDAO {
             statement.execute();
 
         } catch (SQLIntegrityConstraintViolationException erroSql){
-            throw new ErroSql("Não foi possível excluir defunto pois possui serviço atrelado.");
+            throw new ErroSql("Não foi possível excluir defunto pois este possui serviço atrelado.");
         } 
         catch (SQLException e) {
             throw new RuntimeException(e);

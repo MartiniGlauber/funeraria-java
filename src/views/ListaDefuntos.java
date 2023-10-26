@@ -7,7 +7,10 @@ package views;
 
 import dao.DefuntoDAO;
 import errors.ErroSql;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +29,14 @@ public class ListaDefuntos extends javax.swing.JFrame {
      */
     public ListaDefuntos() {
         initComponents();
+        defineIcone();
+    }
+    private void defineIcone() {
+        Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16, icone32, icone64, icone128));
     }
 
     private void preencheTabela(){
@@ -142,7 +153,7 @@ public class ListaDefuntos extends javax.swing.JFrame {
             DefuntoDAO.excluiDefunto(defuntoSelecionado);
             preencheTabela();
         } catch (ErroSql er){
-            JOptionPane.showMessageDialog(this, "Não é possivel excluir defunto pois o mesmo está atrelado à um serviço\n", getTitle(), JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, er.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Erro ao tentar excluir defunto\n"+e.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
         }

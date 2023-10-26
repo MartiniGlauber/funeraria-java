@@ -6,6 +6,10 @@
 package views;
 
 import dao.ClienteDAO;
+import errors.ErroSql;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +27,15 @@ public class ListaClientes extends javax.swing.JFrame {
      */
     public ListaClientes() {
         initComponents();
+        defineIcone();
+    }
+    
+    private void defineIcone() {
+        Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16, icone32, icone64, icone128));
     }
 
     private void preencheTabela(){
@@ -145,6 +158,8 @@ public class ListaClientes extends javax.swing.JFrame {
             }
             ClienteDAO.excluiCliente(clienteSelecionado);
             preencheTabela();
+        }catch (ErroSql er){
+            JOptionPane.showMessageDialog(this, er.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Erro ao tentar excluir cliente\n"+e.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
         }
