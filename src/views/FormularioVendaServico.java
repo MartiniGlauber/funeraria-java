@@ -1,4 +1,3 @@
-
 package views;
 
 import dao.AutomovelDAO;
@@ -26,22 +25,28 @@ import models.Servico;
 import models.TipoServico;
 import models.UrnaFuneraria;
 
-
 /**
  *
  * @author 182220008
  */
-public class VendaServico extends javax.swing.JFrame {
+public class FormularioVendaServico extends javax.swing.JFrame {
+
+    private Servico servico;
 
     /**
      * Creates new form VendaServico
      */
-    public VendaServico() {
+    public FormularioVendaServico() {
         initComponents();
         defineIcone();
     }
 
-    
+    public FormularioVendaServico(Servico servico) {
+        this.servico = servico;
+        initComponents();
+        defineIcone();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -252,41 +257,44 @@ public class VendaServico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtCadServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadServicoActionPerformed
-try{
-        Servico serv = criaServico();
-        ServicoDAO.cadastra(serv);
-        JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        try(PrintStream ps = new PrintStream(new File("NF.txt"),StandardCharsets.UTF_8.name())){
-            ps.println("Funerária um irmão \n Antes eram dois.");
-            ps.println("Cliente: "+serv.getCli().getNome());
-            ps.println("Defunto: "+serv.getDef().getNome());
-            ps.println(serv.getTipoServico().getNome());
-            ps.println(String.format("Total R$ %.2f", serv.getValor()));
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(this, String.format("Erro ao gerar nota fiscal:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
-        dispose();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar Serviço:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
+        try {
+            Servico serv = criaServico();
+            if (this.servico != null) {
+                serv.setId(servico.getId());
+                ServicoDAO.editaServico(serv);
+                JOptionPane.showMessageDialog(this, "Serviço atualizado com sucesso\n", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                ServicoDAO.cadastra(serv);
+                JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso\n" + serv, getTitle(), JOptionPane.INFORMATION_MESSAGE);
+                try (PrintStream ps = new PrintStream(new File("NF.txt"), StandardCharsets.UTF_8.name())) {
+                    ps.println("Funerária um irmão \n Antes eram dois.");
+                    ps.println("Cliente: " + serv.getCli().getNome());
+                    ps.println("Defunto: " + serv.getDef().getNome());
+                    ps.println(serv.getTipoServico().getNome());
+                    ps.println(String.format("Total R$ %.2f", serv.getValor()));
+
+                    dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, String.format("Erro ao cadastrar Serviço:\n%s", e.getMessage()), getTitle(), JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_BtCadServicoActionPerformed
-    private void defineIcone(){
-        Image icone16= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
-        Image icone32= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
-        Image icone64= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
-        Image icone128= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
-        setIconImages(Arrays.asList(icone16,icone32, icone64, icone128));
+    private void defineIcone() {
+        Image icone16 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/16.png"));
+        Image icone32 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/32.png"));
+        Image icone64 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/64.png"));
+        Image icone128 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/128.png"));
+        setIconImages(Arrays.asList(icone16, icone32, icone64, icone128));
     }
     private void btSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubtotalActionPerformed
         Servico serv = criaServico();
         float valor = serv.getValor();
         lbSubtotal.setText(String.format("Subtotal R$ %.2f", valor));
-        
+
     }//GEN-LAST:event_btSubtotalActionPerformed
 
-   
-    
-    public Servico criaServico(){
+    public Servico criaServico() {
         Cliente cli = CbCliente.getItemAt(CbCliente.getSelectedIndex());
         Defunto def = CbDefunto.getItemAt(CbDefunto.getSelectedIndex());
         TipoServico ts = CbxServico.getItemAt(CbxServico.getSelectedIndex());
@@ -294,12 +302,11 @@ try{
         CemiterioCapela cc = CbxCapela.getItemAt(CbxCapela.getSelectedIndex());
         Automovel aut = CbxAutomovel.getItemAt(CbxAutomovel.getSelectedIndex());
         UrnaFuneraria uf = CbxUrnaFuneraria.getItemAt(CbxUrnaFuneraria.getSelectedIndex());
-        
-        float valor = (uf.getValor()+ ts.getValor());
-        
-        
+
+        float valor = (uf.getValor() + ts.getValor());
+
         Servico serv = new Servico(ts, valor, aut, ff, cc, uf, cli, def);
-        
+
         return serv;
     }
 

@@ -6,6 +6,7 @@
 package views;
 
 import dao.DefuntoDAO;
+import errors.ErroSql;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -58,7 +59,7 @@ public class ListaDefuntos extends javax.swing.JFrame {
         btExcluir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Funerária um irmão - Lista de defuntos");
 
         jtTabelaDefuntos.setModel(model);
@@ -140,6 +141,8 @@ public class ListaDefuntos extends javax.swing.JFrame {
             }
             DefuntoDAO.excluiDefunto(defuntoSelecionado);
             preencheTabela();
+        } catch (ErroSql er){
+            JOptionPane.showMessageDialog(this, "Não é possivel excluir defunto pois o mesmo está atrelado à um serviço\n", getTitle(), JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Erro ao tentar excluir defunto\n"+e.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
         }

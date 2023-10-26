@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Validator {
     public static boolean isValidString(String s){
         if (s==null) return false;
-        return !(s.isEmpty()||s.isBlank());        
+        return !(s.isEmpty());        
     }
     public static boolean isValidCpf(String cpf){
         if (!isValidString(cpf)) return false;

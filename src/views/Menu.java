@@ -189,7 +189,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btCadServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadServicoActionPerformed
         try {
-            new VendaServico().setVisible(true);
+            new FormularioVendaServico().setVisible(true);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
